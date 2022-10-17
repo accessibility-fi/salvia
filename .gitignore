@@ -1,0 +1,6 @@
+/.history/
+/.vscode/
+/.vs/
+/api/*/obj/
+*.bak
+

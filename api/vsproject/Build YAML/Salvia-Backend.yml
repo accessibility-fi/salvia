@@ -1,0 +1,58 @@
+variables:
+- name: BuildParameters.solution
+  value: Salvia/SalviaServiceAPI/SalviaServiceAPI.csproj
+- name: BuildParameters.ArtifactName
+  value: Salvia_Backend
+trigger:
+  branches:
+    include:
+    - refs/heads/testing
+  paths:
+    include:
+    - Salvia/SalviaServiceAPI/*
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/testing
+jobs:
+- job: Job_1
+  displayName: Salvia Backend
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+
+# NuGet tool installer
+# Acquires a specific version of NuGet from the internet or the tools cache and adds it to the PATH. Use this task to change the version of NuGet used in the NuGet tasks.
+
+  - task: NuGetToolInstaller@1
+    displayName: Use NuGet 5.9.1
+    inputs:
+      versionSpec: 5.9.1
+      checkLatest: true
+  - task: NuGetCommand@2
+    displayName: NuGet restore
+    inputs:
+      solution: $(BuildParameters.solution)
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      packageType: sdk
+      version: 5.0.x
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+  - task: VSBuild@1
+    displayName: Build solution
+    inputs:
+      solution: $(BuildParameters.solution)
+      vsVersion: "16.0"
+      msbuildArgs: /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactstagingdirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"
+      platform: $(BuildPlatform)
+      configuration: $(BuildConfiguration)
+      restoreNugetPackages: true
+      createLogFile: true
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifact
+    condition: succeededOrFailed()
+    

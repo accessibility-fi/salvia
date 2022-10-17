@@ -1,0 +1,44 @@
+{
+  "name": "nodejs-webapp-express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run server",
+    "start-dev": "concurrently \"npm run dev-server\" \"cd ../salvia-ui && npm start\"",
+    "build-ui": "cd ../salvia-ui && npm run build",
+    "server": "node server.js",
+    "dev-server": "nodemon server",
+    "format": "prettier --write **/*.js --config ./.prettierrc"
+  },
+  "description": "nodejs-webapp-express",
+  "author": {
+    "name": "TietoEvry"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.14.0",
+    "http": "0.0.1-security",
+    "i18n": "^0.13.3",
+    "jsdom": "^17.0.0",
+    "luxon": "^1.27.0",
+    "morgan": "^1.7.0",
+    "natives": "^1.1.6",
+    "node-fetch": "^2.6.7",
+    "pdfkit": "^0.12.3",
+    "pug": "^2.0.0-beta6",
+    "query-string": "^7.1.0",
+    "serve-favicon": "^2.3.0",
+    "url-join": "^4.0.1"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  },
+  "devDependencies": {
+    "concurrently": "^6.1.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.7.1"
+  }
+}

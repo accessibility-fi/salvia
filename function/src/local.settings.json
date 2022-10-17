@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "SALVIA_API_URL": "http://api:44388",
+    "AzureWebJobsStorage": "AccountName=account1;AccountKey=key1;DefaultEndpointsProtocol=http;BlobEndpoint=http://azurite:10000/account1;QueueEndpoint=http://azurite:10001/account1;TableEndpoint=http://azurite:10002/account1;"
+  },
+"Host": {
+    "CORS": "*"
+  }
+}

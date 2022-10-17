@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Saavutettavuusseloste </title>
+    <!-- Kehoitamme muuttamaan tyylejä muuhun sivustoon sopivaksi. -->
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+
+        .row {
+            margin: 25px 0;
+        }
+
+        .row .deficiency-section {
+            margin: 15px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 10px 0 5px;
+        }
+
+        .statement__section {
+            margin-bottom: 4em;
+        }
+
+        .statement__inaccessible {
+            margin-bottom: 2em;
+        }
+
+        .flaws {
+            padding-left: 0;
+        }
+
+        .flaw {
+            margin-bottom: 1em;
+            list-style: none;
+            background-color: #f0f0f0;
+            padding: 0.5em;
+        }
+
+        .flaw__title {}
+
+        .flaw__subtitle {}
+
+        .flaw p {
+            margin-bottom: 1em;
+        }
+
+        .flaw ul {
+            margin-bottom: 1em;
+        }
+
+        .flaw__wcag li {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+                    <header>
+                <h1>
+                    Salvia-saavutettavuustestauspalvelun saavutettavuusseloste</h1>
+            </header>
+            <section class="statement__section">
+                <p>
+                    Tämä saavutettavuusseloste koskee Salvia-palvelua ja on laadittu 23.6.2022. Palvelua koskee laki digitaalisten palvelujen tarjoamisesta, jossa edellytetään, että julkisten verkkopalvelujen on oltava saavutettavia. </p>
+                <p>
+                    Olemme arvioineet palvelun saavutettavuuden itse.</p>
+            </section>
+
+                            <section class="statement__section">
+                    <h2>
+                        Digipalvelun saavutettavuuden tila                    </h2>
+                    <p>
+                        Täyttää saavutettavuusvaatimukset osittain.                    </p>
+                </section>
+            
+                            <h2>
+                    Ei-saavutettava sisältö                </h2>
+            
+            
+            
+                            <section class="statement__section">
+                    <section class="statement__inaccessible">
+                        <h3>
+                            3. Verkkosivusto ei ole vielä kaikilta osin vaatimusten mukainen                        </h3>
+
+                        <ul class="flaws">
+                                                                                                <li class="flaw">
+                                        <h4 class="flaw__title">
+                                            Havaittava: PDF-tiedostojen linkkejä ei ole kytketty tunnisterakenteeseen (tags)                                         </h4>
+                                        <h5 class="flaw__subtitle">
+                                            Saavuttamaton sisältö ja sen puutteet                                        </h5>
+                                        <p>
+                                            PDF-tiedostorakenteessa napsautettavat linkit ovat tekstissä olevan linkkitekstin päälle sijoitettuja erillisiä huomautuksia (eng. &quot;annotations&quot;), jotka tulisi kytkeä tekstirakenteen LINK-tunnisteisiin LINK-OBJR-tunnisteilla. Tämä saattaa aiheuttaa ongelmia joidenkin PDF-lukuohjelmien kanssa.<br />
+PDF-tiedostojen luomiseen käytetty PDFkit-ohjelmistokirjasto ei tätä vielä mahdollista. Kaikkien linkkien URL-osoitteet on siksi kirjoitettu tulosteisiin näkyviin.                                         </p>
+                                        <h5>
+                                            Saavutettavuusvaatimukset jotka eivät täyty                                        </h5>
+                                        <ul class="flaw__wcag">
+                                                                                            <li>
+                                                    1.3.1 Informaatio ja suhteet                                                </li>
+                                                                                    </ul>
+                                    </li>
+                                                                                                                                <li class="flaw">
+                                        <h4 class="flaw__title">
+                                            Hallittava: PDF-tiedostoista puuttuu merkintä lukemisjärjestyksestä                                        </h4>
+                                        <h5 class="flaw__subtitle">
+                                            Saavuttamaton sisältö ja sen puutteet                                        </h5>
+                                        <p>
+                                            PDF-tiedostojen sivujen lukujärjestys on sama kuin tunnisteiden järjestys dokumentin rakenteessa. PDF-tiedostojen luomiseen käytetty PDFkit-ohjelmistokirjaston nykyinen versio ei kuitenkaan merkitse tiedostoihin sivujen lukujärjestystä.                                         </p>
+                                        <h5>
+                                            Saavutettavuusvaatimukset jotka eivät täyty                                        </h5>
+                                        <ul class="flaw__wcag">
+                                                                                            <li>
+                                                    2.4.3 Kohdistusjärjestys                                                </li>
+                                                                                    </ul>
+                                    </li>
+                                                                                                                                                                                                            </ul>
+                    </section>
+                </section>
+            
+                            <section class="statement__section">
+                    <h2>
+                        Huomasitko saavutettavuuspuutteen digipalvelussamme? Kerro se meille ja teemme parhaamme puutteen korjaamiseksi                    </h2>
+
+                    
+                                            <h3>
+                            Sähköpostilla                        </h3>
+                        <p>
+                            saavutettavuus@avi.fi                        </p>
+                    
+                                    </section>
+                    
+        <section class="statement__section">
+            <h2>
+                Valvontaviranomainen            </h2>
+            <p>
+                Jos huomaat sivustolla saavutettavuusongelmia, anna ensin palautetta meille eli sivuston ylläpitäjälle. Vastauksessa voi mennä 14 päivää. Jos et ole tyytyväinen saamaasi vastaukseen tai et saa vastausta lainkaan kahden viikon aikana, <a href="https://www.saavutettavuusvaatimukset.fi/oikeutesi/" target="_blank">voit tehdä ilmoituksen Etelä-Suomen aluehallintovirastoon <span class="screen-reader-text">Avautuu uuteen ikkunaan</span></a>. Etelä-Suomen aluehallintoviraston sivulla kerrotaan tarkasti, miten ilmoituksen voi tehdä ja miten asia käsitellään.            </p>
+
+            <h2>
+                Valvontaviranomaisen yhteystiedot            </h2>
+            <p>
+                Etelä-Suomen aluehallintovirasto<br />
+Saavutettavuuden valvonnan yksikkö<br />
+www.saavutettavuusvaatimukset.fi  <br />
+saavutettavuus(at)avi.fi<br />
+puhelinnumero vaihde 0295 016 000            </p>
+        </section>
+
+                    
+            </article>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tillgänglighetsutlåtande</title>
+		<!-- Kehoitamme muuttamaan tyylejä muuhun sivustoon sopivaksi. -->
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+			}
+
+			.row {
+				margin: 25px 0;
+			}
+
+			.row .deficiency-section {
+				margin: 15px;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 10px 0 5px;
+			}
+
+			.statement__section {
+				margin-bottom: 4em;
+			}
+
+			.statement__inaccessible {
+				margin-bottom: 2em;
+			}
+
+			.flaws {
+				padding-left: 0;
+			}
+
+			.flaw {
+				margin-bottom: 1em;
+				list-style: none;
+				background-color: #f0f0f0;
+				padding: 0.5em;
+			}
+
+			.flaw__title {}
+
+			.flaw__subtitle {}
+
+			.flaw p {
+				margin-bottom: 1em;
+			}
+
+			.flaw ul {
+				margin-bottom: 1em;
+			}
+
+			.flaw__wcag li {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h1>
+					Tillgänglighetsutlåtande för Salvia, tjänsten för testning av tillgänglighet
+				</h1>
+			</header>
+			<section class="statement__section">
+				<p>
+					Detta tillgänglighetsutlåtande gäller tjänsten Salvia och har upprättats 26.09.2022. Tjänsten omfattas av lagen om tillhandahållande av digitala tjänster och dess krav på att offentliga webbplatser måste vara tillgängliga.
+				</p>
+				<p>
+					Vi har själva granskat hur tillgänglig tjänsten är.
+				</p>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Tillgänglighetsstatus för den digitala tjänsten
+				</h2>
+				<p>
+					Uppfyller delvis tillgänglighetskraven
+				</p>
+			</section>
+			<h2>
+				Icke-tillgängligt innehåll
+			</h2>
+			<section class="statement__section">
+				<section class="statement__inaccessible">
+					<h3>
+						Webbplatsen uppfyller ännu inte alla krav.
+					</h3>
+					<ul class="flaws">
+						<li class="flaw">
+							<h4 class="flaw__title">
+								Möjlig att uppfatta: PDF-filernas länkar är inte kopplade till taggstrukturen (tags)
+							</h4>
+							<h5 class="flaw__subtitle">
+								Innehåll som inte är tillgängligt och dess brister
+							</h5>
+							<p>
+								Länkar som du klickar på i PDF-filstrukturen är separata anmärkningar på länktexten i texten (eng. "annotations"), som ska kopplas till textstrukturens LINK-taggar (eng. "tags") med LINK-OBJR-taggar. Detta kan orsaka problem med vissa PDF-läsprogram.<br />
+								Programvarubiblioteket PDFkit som använts för att skapa PDF-filerna möjliggör ännu inte detta. Därför har URL-adresserna för alla länkar skrivits ut på utskrifterna.
+
+							</p>
+							<h5>
+								Tillgänglighetskrav som inte uppfylls
+							</h5>
+							<ul class="flaw__wcag">
+								<li>
+									1.3.1 Information och relationer
+								</li>
+							</ul>
+						</li>
+						<li class="flaw">
+							<h4 class="flaw__title">
+								Hanterbar: PDF-filerna saknar markering för läsordning
+							</h4>
+							<h5 class="flaw__subtitle">
+								Innehåll som inte är tillgängligt och dess brister
+							</h5>
+							<p>
+								PDF-filernas sidor har samma läsordning som taggarnas (eng. "tags") ordning i dokumentets struktur. Den nuvarande versionen av programvarubiblioteket PDFkit som använts för att skapa PDF-filerna anger dock inte sidornas läsordning i filerna.
+							</p>
+							<h5>
+								Tillgänglighetskrav som inte uppfylls
+							</h5>
+							<ul class="flaw__wcag">
+								<li>
+									2.4.3 Fokusordning
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Upptäckte du en tillgänglighetsbrist i vår digitala tjänst? Beskriv den för oss och vi ska göra vårt bästa för att åtgärda den
+				</h2>
+				<h3>
+					Per e-post
+				</h3>
+				<p>
+					saavutettavuus@avi.fi
+				</p>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Tillsynsmyndigheten
+				</h2>
+				<p>
+					Kontakta oss om du vill påtala brister i tillgängligheten på vår webbplats. Det kan ta 14 dagar innan du får ett svar. Om du inte är nöjd med det svar du har fått eller inte får något svar alls inom två veckor kan du lämna in en anmälan om bristande tillgänglighet till Regionförvaltningsverket i Södra Finland. På regionförvaltningsverkets webbplats finns det beskrivet hur du kan lämna in en anmälan och hur ärendet behandlas.
+				</p>
+				<h2>
+					Tillsynsmyndighetens kontaktuppgifter
+				</h2>
+				<p>
+					Regionförvaltningsverket i Södra Finland<br />
+					Enheten för tillgänglighetstillsyn<br />
+					www.tillgänglighetskrav.fi<br />
+					webbtillganglighet@rfv.fi<br />
+					telefonnummer växeln 0295 016 000
+				</p>
+			</section>
+		</article>
+	</body>
+</html>

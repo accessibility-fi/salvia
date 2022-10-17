@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Accessibility statement</title>
+		<!-- We suggest you change the styles to match your preferences -->
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+			}
+
+			.row {
+				margin: 25px 0;
+			}
+
+			.row .deficiency-section {
+				margin: 15px;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin: 10px 0 5px;
+			}
+
+			.statement__section {
+				margin-bottom: 4em;
+			}
+
+			.statement__inaccessible {
+				margin-bottom: 2em;
+			}
+
+			.flaws {
+				padding-left: 0;
+			}
+
+			.flaw {
+				margin-bottom: 1em;
+				list-style: none;
+				background-color: #f0f0f0;
+				padding: 0.5em;
+			}
+
+			.flaw__title {}
+
+			.flaw__subtitle {}
+
+			.flaw p {
+				margin-bottom: 1em;
+			}
+
+			.flaw ul {
+				margin-bottom: 1em;
+			}
+
+			.flaw__wcag li {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h1>
+					Welcome, this is a general accessibility statement for the Salvia web accessibility testing service
+				</h1>
+			</header>
+			<section class="statement__section">
+				<p>
+				   This accessibility statement concerns the service Salvia web accessibility testing service and it has been drafted / updated on 26.9.2022. The service is governed by the Act on the Provision of Digital Services, which requires public online services to be accessible.
+				</p>
+				<p>
+					We have assessed the accessibility of the service ourselves.
+				</p>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Accessibility status of the digital service
+				</h2>
+				<p>
+					Partially meets the accessibility requirements.
+				</p>
+			</section>
+			<h2>
+				Non-accessible content
+			</h2>
+			<section class="statement__section">
+				<section class="statement__inaccessible">
+					<h3>
+						The website is not yet fully compliant with the requirements
+					</h3>
+					<ul class="flaws">
+						<li class="flaw">
+							<h4 class="flaw__title">
+								Perceivable: links in the PDF-files are not connected with the tag structure.
+							</h4>
+							<h5 class="flaw__subtitle">
+								Non-accessible content and its shortcomings
+							</h5>
+							<p>
+								In PDFs clickable links are floting annotations placed above the corresponding links in the text. To meet the accessibility requirements these link annotations need to be connected with the sorresponding LINK tags adding a LINK-OBJR tags to these LINK tags. Missing this connection between the clickable link and the describing link tag might cause some accessibility issues with some PDF readers.<br />
+								The program library that's being used to print PDF files, PDFkit, does not yet support this. Therefore, currently all URL addresses have been printed out to the document text.
+							</p>
+							<h5>
+								Accessibility requirements that have not beet met
+							</h5>
+							<ul class="flaw__wcag">
+								<li>
+									1.3.1 Info and Relationships
+								</li>
+							</ul>
+						</li>
+						<li class="flaw">
+							<h4 class="flaw__title">
+								Operable: PDF files lack the information about appropriate reading order
+							</h4>
+							<h5 class="flaw__subtitle">
+								Non-accessible content and its shortcomings
+							</h5>
+							<p>
+								The intended reading order of the PDF files is the tag order in the documents' structure. However, the program library that's being used to print PDF files, PDFkit, does not yet support adding this information to the document automatically.
+							</p>
+							<h5>
+								Accessibility requirements that have not beet met
+							</h5>
+							<ul class="flaw__wcag">
+								<li>
+									2.4.3 Focus Order
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Did you notice an accessibility issue on our service? Please, let us know and we'll do our best to fix it.
+				</h2>
+				<h3>
+					By email 
+				</h3>
+				<p>
+					saavutettavuus@avi.fi
+				</p>
+			</section>
+			<section class="statement__section">
+				<h2>
+					Supervisory authority
+				</h2>
+				<p>
+					If you notice any accessibility issues on the site, please provide feedback to us first, that is, to the site administrator. We will reply within 14 days. If you are not satisfied with our response or do not receive any response within two weeks, you can file a report with the Regional State Administrative Agency for Southern Finland. The page of the Regional State Administrative Agency for Southern Finland contains a detailed description of how the report can be filed and how the matter will be processed.
+				</p>
+				<h2>
+					Contact details of the supervisory authority
+				</h2>
+				<p>
+					Regional State Administrative Agency for Southern Finland,<br />
+					Accessibility Monitoring Unit<br />
+					https://www.webaccessibility.fi/<br />
+					saavutettavuus(at)avi.fi<br />
+					telephone (switchboard): 0295 016 000
+				</p>
+			</section>
+		</article>
+	</body>
+</html>

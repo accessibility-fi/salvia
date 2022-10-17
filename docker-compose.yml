@@ -1,0 +1,73 @@
+---
+version: "3.5"
+
+volumes:
+  azuritevolume:
+  mssqlvolume:
+
+
+services:
+  azurite: # https://github.com/Azure/Azurite#dockerhub
+    image: mcr.microsoft.com/azure-storage/azurite # https://hub.docker.com/_/microsoft-azure-storage-azurite
+    container_name: salvia_azurite
+    environment:
+      AZURITE_ACCOUNTS: "account1:key1"
+      #AZURITE_DB=mysql://username:password@localhost:3306/azurite_blob
+    ports: # https://github.com/Azure/Azurite#certificate-configuration-https
+      - 10000:10000
+      - 10001:10001
+      - 10002:10002
+    volumes:
+      - azuritevolume:/data
+    restart: unless-stopped
+  mssql: # https://hub.docker.com/_/microsoft-mssql-server
+    image: ghcr.io/accessibility-fi/salvia_mssql:latest
+    container_name: salvia_mssql
+    environment:
+      ACCEPT_EULA: "N" # Change this to "Y" only if you have a valid license to use Microsoft SQL Server
+      SA_PASSWORD: "ChangeThisPasswordToSomethingBetter1"
+      MSSQL_PID: "Express"
+    ports:
+      - 1433:1433
+    volumes:
+      - mssqlvolume:/var/opt/mssql
+    restart: unless-stopped
+  api:
+    image: ghcr.io/accessibility-fi/salvia_api:latest
+    container_name: salvia_api
+    environment:
+      TZ: "Europe/Helsinki"
+      ASPNETCORE_URLS: "http://+:8088/" # use the intended port directly, otherwise connection might be refused
+      #ASPNETCORE_HTTPS_PORT: 44388 # Enabling HTTPS: https://github.com/dotnet/dotnet-docker/blob/main/samples/host-aspnetcore-https.md
+      #ASPNETCORE_Kestrel__Certificates__Default__Password: "crypticpassword" # see link above for enabling HTTPS
+      #ASPNETCORE_Kestrel__Certificates__Default__Path: "/https/aspnetapp.pfx" # see link above for enabling HTTPS
+    ports:
+      - 8088:8088 # http://localhost:8088/api/TestCases
+      #- 44388:443 # https://localhost:44388/api/TestCases # see link above for enabling HTTPS
+    #volumes:
+    #  - $home/.aspnet/https:/https/ # see link above for enabling HTTPS
+    restart: unless-stopped
+  function:
+    image: ghcr.io/accessibility-fi/salvia_function:latest
+    container_name: salvia_function
+    environment:
+      TZ: "Europe/Helsinki"
+    ports:
+      - 7071:7071
+    restart: unless-stopped
+  app:
+    image: ghcr.io/accessibility-fi/salvia_app:latest
+    container_name: salvia_app
+    environment:
+      TZ: "Europe/Helsinki"
+      NODE_ENV: development
+      REACT_APP_SALVIA_FUNCTION_URL: http://localhost:7071/     #selain
+      REACT_APP_SALVIA_API_URL: http://localhost:8088/          #selain
+      SALVIA_FUNCTION_URL: http://function:7071/                #backend
+      SALVIA_API_URL: http://api:8088/                          #backend
+      SALVIA_FUNCTION_API_KEY: api_key
+    ports:
+      - 3000:3000
+      - 3001:3001
+    restart: unless-stopped
+    

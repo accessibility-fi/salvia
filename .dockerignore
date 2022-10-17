@@ -1,0 +1,15 @@
+# Files.
+.editorconfig
+.env.example
+.gitattributes
+.gitignore
+.gitkeep
+.travis.yml
+docker-compose.yml
+phpunit.xml.dist
+README.md
+npm-debug.log
+
+# Directories.
+docs
+node_modules

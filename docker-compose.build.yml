@@ -1,0 +1,17 @@
+---
+version: "3.5"
+
+services:
+  mssql:
+    image: salvia_mssql:local
+    build: ./mssql
+  api:
+    image: salvia_api:local
+    build: ./api
+  function:
+    image: salvia_function:local
+    build: ./function
+  app:
+    image: salvia_app:local
+    build: ./app
+
