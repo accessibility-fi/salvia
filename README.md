@@ -56,7 +56,8 @@ Before starting the containers, you should adjust the RAM and CPU resources allo
 
 ### Docker-compose
 
-#### Using [prebuilt images from GitHub Packages container registry](https://github.com/orgs/accessibility-fi/packages?repo_name=salvia)
+#### Using prebuilt Docker images from [GitHub Packages container registry](https://github.com/orgs/accessibility-fi/packages?repo_name=salvia)
+
 ```console
 cd /dir_where_the_repo_is_located/
 docker-compose up  -d --force-recreate --build --remove-orphans
