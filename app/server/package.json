@@ -10,7 +10,7 @@
     "dev-server": "nodemon server",
     "format": "prettier --write **/*.js --config ./.prettierrc"
   },
-  "description": "nodejs-webapp-express",
+  "description": "Salvia app server",
   "author": {
     "name": "TietoEvry"
   },
@@ -27,8 +27,8 @@
     "morgan": "^1.7.0",
     "natives": "^1.1.6",
     "node-fetch": "^2.6.7",
-    "pdfkit": "^0.12.3",
-    "pug": "^2.0.0-beta6",
+    "pdfkit": "^0.13.0",
+    "pug": "^3.0.2",
     "query-string": "^7.1.0",
     "serve-favicon": "^2.3.0",
     "url-join": "^4.0.1"
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1"
   }
 }
