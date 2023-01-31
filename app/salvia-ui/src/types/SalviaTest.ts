@@ -25,7 +25,7 @@ export type SalviaTestStats = {
 export type SalviaSaveTestCase = {
   domain: string
   viewport: Viewport
-  report: { data: Record<string, PageReport>; reportId: string }
+  report: { data: Record<string, StatReport>; reportId: string }
   user: SalviaUser | undefined
 }
 
@@ -45,8 +45,21 @@ export type PageReport = {
     page: unknown /*Object*/
   }
   metadata: ReportMetadata
-  modules?: unknown /*Object*/
+  modules: Partial<Record<ModuleType, Module>>
 }
+
+
+export type StatReport = Omit<PageReport, 'modules'>
+
+export type Module = {
+    type: ModuleType
+    metadata: ReportMetadata
+    assertions: Record<string, ACTRule>
+
+}
+
+export type ModuleType = 'act-rules' | 'wcag-techniques' | 'best-practices'
+
 
 export type ACTRule = {
   name: string
@@ -64,7 +77,23 @@ export type ACTRule = {
     outcome: string
     description: string
   }
-  results: unknown[] /*Object[]*/
+  results: Result[]
+}
+
+export type Result = {
+    verdict: string
+    description: string
+    resultCode: string
+    elements: Element[]
+    attributes: Object[]
+
+}
+
+export type Element = {
+
+    htmlCode: string
+    pointer: string
+    accessibleName: string
 }
 
 export type SuccessCriteria = {

@@ -4,9 +4,10 @@ import { RootState } from '../../store'
 import { runQualweb } from './qualwebAPI'
 import { v4 as uuidv4 } from 'uuid'
 import { saveSalviaTestCase } from '../salvia/salviaAPI'
-import { PageReport, Viewport } from '../../../types/SalviaTest'
+import { StatReport, Viewport } from '../../../types/SalviaTest'
 import { storeQualwebReport } from '../report/reportAPI'
 import { map, merge, omit } from 'rambda'
+import { modifyPageReport } from '../../../components/utils'
 
 export interface QualwebState {
   value: number
@@ -49,18 +50,18 @@ export const createTest = createAsyncThunk(
 
     const qualwebResult = qualwebResponse
       .map((item) => item.data)
-      .reduce((acc, value) => merge(acc, value))
+          .reduce((acc, value) => merge(acc, value))
 
-    const id = uuidv4()
+    const modifiedReport = modifyPageReport(qualwebResult)
 
-    const storeResponse = await storeQualwebReport(id, qualwebResult)
+    const storeResponse = await storeQualwebReport(uuidv4(), modifiedReport)
 
-    const pageReport: Record<string, PageReport> = map(
+    const statReport: Record<string, StatReport> = map(
       (item) => omit(['modules'], item),
       qualwebResult,
     )
 
-    const response = await saveSalviaTestCase(domain, storeResponse.id, pageReport, viewport, user)
+    const response = await saveSalviaTestCase(domain, storeResponse.id, statReport, viewport, user)
 
     return response.data
   },

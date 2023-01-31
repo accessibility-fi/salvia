@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
 import { isEmpty, startsWith } from 'rambda'
 import normalizeURL from 'normalize-url'
+import { ACTRule, Element, Module, PageReport } from '../types/SalviaTest'
 
 export function buildReportName(domain: string, ts: string, type: string) {
   return (
@@ -91,4 +92,51 @@ export function normalizeUrl(url: string) {
 
 export const validateURL = (url: string) => {
   return startsWith('http://', url) || startsWith('https://', url)
+}
+
+
+export const modifyHtmlElement = (el: Element) => {
+    const { htmlCode, pointer } = el
+    //remove all duplicate whitespaces, tabs, newlines
+    const modifiedEl = htmlCode.replace(/\s{2,}/g, ' ');
+
+    //remove body from html element
+    if (pointer === 'html') {
+        let parsed = new DOMParser().parseFromString(modifiedEl, "text/html")
+        parsed.body.textContent = ""
+        return { ...el, htmlCode: parsed.documentElement.outerHTML }
+    }
+
+    return { ...el, htmlCode: modifiedEl }
+}
+
+export const modifyACTRules = (actRules: Record<string, ACTRule>) => {
+
+
+    Object.entries(actRules).forEach(([key, rule]) => {
+
+        actRules[key] = {
+            ...rule, results: rule['results'].map(res => {
+                return { ...res, elements: res.elements.map(el => modifyHtmlElement(el)) }
+            
+            })
+        }
+
+    })
+
+    return actRules
+}
+
+export const modifyPageReport = (report: Record<string, PageReport>) => {
+    Object.entries(report).forEach(([url, pageReport]) => {
+        report[url] = {
+            ...pageReport, modules: {
+                ...pageReport.modules, 'act-rules': {
+                    ...pageReport.modules['act-rules'], assertions: modifyACTRules(( pageReport.modules['act-rules'] as Module)['assertions'])
+                } as Module
+            }
+        }
+    })
+
+    return report
 }

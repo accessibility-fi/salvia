@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Localize from './common/Localize'
 import FileUploader from './FileUploader'
-import { formatDomain } from './utils'
+import { formatDomain, modifyHtmlElement } from './utils'
 import {
   Button,
   Expander,
@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 import urljoin from 'url-join'
 import { isEmpty } from 'rambda'
 import CustomTextInput from './common/CustomTextInput'
+import { ACTRule } from '../types/SalviaTest'
 
 export type TestResult = {
   url: string
@@ -60,7 +61,19 @@ const AddTestResult = ({
         if (json && typeof json === 'string') {
           const report = JSON.parse(json)
 
-          const title = report['summary']['title']
+            const title = report['summary']['title']
+
+            //modify htmlElement
+            const actRules: Record<string, ACTRule> = report['act']
+            Object.entries(actRules).forEach(([key, rule]) => {
+
+                actRules[key] = {
+                    ...rule, results: rule['results'].map(res => {
+                        return { ...res, elements: res.elements.map(el => modifyHtmlElement(el)) }
+                    })
+                }
+
+            })
 
           addTestResult({
             url: buildURL(url),

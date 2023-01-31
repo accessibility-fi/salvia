@@ -1,4 +1,4 @@
-import { PageReport, SalviaSaveTestCase, SalviaTest, Viewport } from '../../../types/SalviaTest'
+import { StatReport, SalviaSaveTestCase, SalviaTest, Viewport } from '../../../types/SalviaTest'
 import { UserInfo } from '../../../types/SalviaUser'
 
 const testCasesURL = '/api/salvia/testcases'
@@ -17,7 +17,7 @@ export function getSalviaTests(): Promise<SalviaTest[]> {
 export function saveSalviaTestCase(
   domain: string,
   reportId: string,
-  report: Record<string, PageReport>,
+  report: Record<string, StatReport>,
   viewport: Viewport,
   user?: UserInfo | undefined,
 ): Promise<{ data: string }> {
