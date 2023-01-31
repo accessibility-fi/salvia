@@ -209,6 +209,12 @@
 	.salvia-title {
 		color: $blue !important;
 	}
+
+	.fi-expander_title-button_button {
+		span {
+			color: $heatherDark;
+		}
+	}
 	/*Form styles*/
 
 	.salvia-form {
