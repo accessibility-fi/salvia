@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/microsoft-azure-functions-node
-FROM mcr.microsoft.com/azure-functions/node:4.0.4544-node14-core-tools
+FROM mcr.microsoft.com/azure-functions/node:4-node16-core-tools
 
 RUN apt update && \
 apt install -y libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev libasound2
