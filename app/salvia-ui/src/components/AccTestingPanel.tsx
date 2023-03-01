@@ -27,6 +27,7 @@ import {
 } from 'suomifi-ui-components'
 import CrawlerFailed from './CrawlerFailed'
 import { validateURL } from './utils'
+import { resetQualweb } from '../redux/reducers/qualweb/qualwebSlice'
 
 const AccTestingPanel = () => {
   const [url, setURL] = useState('')
@@ -57,6 +58,7 @@ const AccTestingPanel = () => {
   }
 
   const crawl = () => {
+    dispatch(resetQualweb())
     setActivePage('crawler')
     dispatch(crawlDomain({ url: url, depth: depth, width: width, viewport: viewport }))
   }
