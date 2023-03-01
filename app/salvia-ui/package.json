@@ -22,7 +22,6 @@
     "bootstrap": "^5.0.0",
     "i18next": "^20.2.2",
     "i18next-browser-languagedetector": "^6.1.0",
-    "i18next-xhr-backend": "^3.2.2",
     "js-file-download": "^0.4.12",
     "luxon": "^1.27.0",
     "normalize-url": "^7.1.0",
