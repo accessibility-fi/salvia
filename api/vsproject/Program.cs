@@ -1,26 +1,28 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SalviaServiceAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SalviaServiceAPI
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
+var builder = Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder =>
+{
+	webBuilder.UseStartup<Startup>();
+});
+
+builder.ConfigureServices((ctx, services) => {
+
+	var dbConnectionString = ctx.Configuration.GetSection("ConnectionStrings:AzureConnectionStringOriginal");
+
+	services.AddDbContext<SalviaDbContext>(opt => opt.UseSqlServer(dbConnectionString.Value));
+	services.AddControllers();
+	services.AddControllers().AddNewtonsoftJson();
+});
+
+builder.Build().Run();

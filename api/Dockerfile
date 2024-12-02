@@ -1,9 +1,9 @@
 # Enabling HTTPS: https://github.com/dotnet/dotnet-docker/blob/main/samples/host-aspnetcore-https.md
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 COPY /vsproject /src
 WORKDIR "/src"
 RUN dotnet restore "SalviaServiceAPI.csproj"
