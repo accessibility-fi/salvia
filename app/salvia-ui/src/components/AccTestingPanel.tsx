@@ -90,7 +90,7 @@ const AccTestingPanel = () => {
           <Heading variant='h2' className='testing-info' tabIndex={-1} ref={headerRef}>
             <Localize text='salvia.automatic-testing' />
           </Heading>
-          <Paragraph marginBottomSpacing='s' className='testing-info'>
+          <Paragraph mb='s' className='testing-info'>
             <Localize text='salvia.testing-info' />
           </Paragraph>
 
@@ -105,7 +105,7 @@ const AccTestingPanel = () => {
                   onChange={(value) => setURL(value?.toString() ?? '')}
                   visualPlaceholder={translate('salvia.enter-url')}
                   hintText={translate('salvia.url-tooltip')}
-                  wrapperProps={{ style: { maxWidth: '400px' } }}
+                  style={{ maxWidth: '400px' }}
                   statusText={!validURL ? translate('salvia.invalid-url') : undefined}
                   status={!validURL ? 'error' : 'default'}
                   onBlur={() => setValidURL(validateURL(url))}

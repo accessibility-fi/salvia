@@ -1,5 +1,5 @@
 #https://hub.docker.com/_/node
-FROM node:16.19.0
+FROM node:18.20.5
 
 
 WORKDIR /salvia-ui

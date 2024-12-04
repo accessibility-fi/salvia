@@ -180,7 +180,7 @@ const CreateSalviaTest = () => {
               <Heading variant='h2' className='testing-info' tabIndex={-1} ref={headerRef}>
                 <Localize text='salvia.manual-testing' />
               </Heading>
-              <Paragraph marginBottomSpacing='s' className='testing-info'>
+              <Paragraph mb='s' className='testing-info'>
                 <Localize text='salvia.create-test-info' />
               </Paragraph>
 

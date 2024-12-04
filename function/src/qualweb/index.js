@@ -1,16 +1,16 @@
-const { QualWeb } = require('@qualweb/core');
+const { QualWeb } = require('@qualweb/core')
 
 
 module.exports = async function (context, req) {
 
-    const domain = req.body.domain;
-    const urls = req.body.urls;
-    const viewport = req.body.viewport ?? "desktop";
-    const isMobile = viewport === "mobile";
+    const domain = req.body.domain
+    const urls = req.body.urls
+    const viewport = req.body.viewport ?? "desktop"
+    const isMobile = viewport === "mobile"
     
-    context.log("Start Qualweb evaluation:" + JSON.stringify({ domain: domain, urls: urls, viewport: viewport }));
+    context.log("Start Qualweb evaluation:" + JSON.stringify({ domain: domain, urls: urls, viewport: viewport }))
 
-    const qualweb = new QualWeb();
+    const qualweb = new QualWeb()
     try {
 
         const clusterOptions = {
@@ -21,9 +21,9 @@ module.exports = async function (context, req) {
 
         // check https://github.com/puppeteer/puppeteer/blob/v8.0.0/docs/api.md#puppeteerlaunchoptions
         const launchOptions = {
-            args: ['--no-sandbox', '--disable-setuid-sandbox']
-        };
-        await qualweb.start(clusterOptions, launchOptions);
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],  headless: 'new'
+        }
+        await qualweb.start(clusterOptions, launchOptions)
 
         // QualWeb evaluation report
 
@@ -40,29 +40,29 @@ module.exports = async function (context, req) {
             "execute": { "act": true, "wcag": false },
             "act-rules": { "levels": ["A", "AA"] }
 
-        };
+        }
 
-        context.log("QualWeb started:" + JSON.stringify(qualwebOptions));
+        context.log("QualWeb started:" + JSON.stringify(qualwebOptions))
 
         // Evaluates the given options - will only return after all urls have finished evaluating or resulted in an error
-        const reports = await qualweb.evaluate(qualwebOptions);
+        const reports = await qualweb.evaluate(qualwebOptions)
 
         context.res = {
             headers: {
                 "content-type": "application/json"
             },
             body: { data: reports }
-        };
+        }
 
 
     } catch (error) {
-        context.log(error);
+        context.log(error)
         
-        throw error;
+        throw error
     }
     finally {
         // Stops the QualWeb core engine
-        await qualweb.stop();
+        await qualweb.stop()
     }
        
 }

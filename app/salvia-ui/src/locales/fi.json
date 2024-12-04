@@ -96,5 +96,6 @@
   "salvia.n-testresults": "testitulosta",
   "salvia.invalid-url": "Tarkista osoitteen muoto",
   "salvia.to-main": "Pääsisältöön",
-  "salvia.n-added-test-reports": "lisättyä testiraporttia"
+  "salvia.n-added-test-reports": "lisättyä testiraporttia",
+  "salvia.language-menu": "Kielivalikko"
 }

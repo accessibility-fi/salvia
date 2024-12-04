@@ -80,7 +80,7 @@
   "salvia.enter-description": "Beskrivning",
   "salvia.description-tooltip": "Lägg till beskrivning",
   "salvia.select-report": "Välj testrapport",
-  "salvia.added-test-results": "Inkluderade testresultat", 
+  "salvia.added-test-results": "Inkluderade testresultat",
   "salvia.save-test": "Vänligen vänta en stund, testresultaten sparas",
   "salvia.save-test-success": "Sparandet av testresultaten lyckades",
   "salvia.save-test-failed": "Sparandet av testresultaten misslyckades",
@@ -97,6 +97,7 @@
   "salvia.n-testresults": "testresultat",
   "salvia.invalid-url": "Granska webbadressen",
   "salvia.to-main": "Gå till huvudinnehållet",
-  "salvia.n-added-test-reports": "testrapporter tillades"
+  "salvia.n-added-test-reports": "testrapporter tillades",
+  "salvia.language-menu": "Språkmeny"
 
 }

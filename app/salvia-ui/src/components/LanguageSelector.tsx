@@ -11,25 +11,28 @@ const LanguageSelector = () => {
       <Helmet htmlAttributes={{ lang: i18n.language }}>
         <title lang={i18n.language}>{translate('salvia.title')}</title>
       </Helmet>
-      <Block margin='xxs'>
-        <LanguageMenu name={i18n.language.toUpperCase()} className='language-container'>
+          <Block margin='xxs'>
+              <LanguageMenu buttonText={i18n.language.toUpperCase()} className='language-container' aria-label={translate('salvia.language-menu')}>
           <LanguageMenuItem
             onSelect={() => i18n.changeLanguage('fi')}
-            selected={i18n.language === 'fi'}
+                      selected={i18n.language === 'fi'}
+                      lang='fi'
           >
             Suomeksi (FI)
           </LanguageMenuItem>
 
           <LanguageMenuItem
             onSelect={() => i18n.changeLanguage('en')}
-            selected={i18n.language === 'en'}
+                      selected={i18n.language === 'en'}
+                      lang='en'
           >
             In English (EN)
           </LanguageMenuItem>
 
           <LanguageMenuItem
             onSelect={() => i18n.changeLanguage('sv')}
-            selected={i18n.language === 'sv'}
+                      selected={i18n.language === 'sv'}
+                      lang='sv'
           >
             På Svenska (SV)
           </LanguageMenuItem>
