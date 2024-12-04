@@ -19,6 +19,7 @@ import {
   ExpanderContent,
   ExpanderTitleButton,
   Heading,
+  IconArrowLeft,
   Paragraph,
 } from 'suomifi-ui-components'
 import urljoin from 'url-join'
@@ -93,7 +94,7 @@ const AccTestingPages = (props: AccTestingPagesProps) => {
               <Heading variant='h2' className='testing-info' tabIndex={-1} ref={headerRef}>
                 <Localize text='salvia.automatic-testing' />
               </Heading>
-              <Paragraph marginBottomSpacing='s' className='testing-info'>
+              <Paragraph mb='s' className='testing-info'>
                 <Localize text='salvia.testing-pages-info' />
               </Paragraph>
 
@@ -176,7 +177,7 @@ const AccTestingPages = (props: AccTestingPagesProps) => {
                     domain={props.domain}
                   />
 
-                  <Button variant='link' icon='arrowLeft' onClick={() => props.back()}>
+                   <Button variant='secondaryLight' icon={<IconArrowLeft />} onClick={() => props.back()}>
                     {translate('salvia.back-to-test')}
                   </Button>
                 </form>

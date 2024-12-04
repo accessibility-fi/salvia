@@ -12,7 +12,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.23",
-    "@types/node": "^12.20.11",
+    "@types/node": "^18.19.67",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/react-helmet": "^6.1.5",
@@ -37,7 +37,8 @@
     "react-spinners": "^0.10.6",
     "sass": "^1.55.0",
     "styled-components": "^5.3.3",
-    "suomifi-ui-components": "8.0.1",
+    "suomifi-icons": "^7.2.0",
+    "suomifi-ui-components": "^15.0.1",
     "typescript": "^4.2.4",
     "url-join": "^4.0.1",
     "uuid": "^8.3.2",
@@ -72,5 +73,8 @@
     "@types/luxon": "^1.26.5",
     "prettier": "^2.7.1",
     "react-scripts": "5.0.1"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }

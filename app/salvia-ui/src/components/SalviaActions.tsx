@@ -1,12 +1,28 @@
 import { useNavigate } from 'react-router-dom'
-import { Button } from 'suomifi-ui-components'
+import { Button, IconEdit, IconUpload, IconArrowLeft, IconHistory, IconRegisters } from 'suomifi-ui-components'
+
 import { useTranslation } from 'react-i18next'
+
+type ActionIcon = 'registers' | 'edit' | 'upload' | 'arrowLeft' | 'history'
 
 export type NavigateAction = {
   text: string
-  icon: 'registers' | 'edit' | 'upload' | 'arrowLeft' | 'history'
+  icon: ActionIcon
   path: string
 }
+
+const SalviaActionIcon = ({ icon }: { icon: ActionIcon }) => {
+    switch (icon) {
+        case 'registers': return <IconRegisters />
+        case 'edit': return <IconEdit />
+        case 'upload': return <IconUpload />
+        case 'arrowLeft': return <IconArrowLeft />
+        case 'history': return <IconHistory />
+        default: return null;
+
+    }
+}
+
 
 const SalviaActions = (actions: NavigateAction[]) => {
   const navigate = useNavigate()
@@ -17,8 +33,8 @@ const SalviaActions = (actions: NavigateAction[]) => {
         <Button
           key={index}
           onClick={() => navigate(`${item.path}`)}
-          variant='link'
-          icon={item.icon}
+          variant='secondaryLight'
+          icon={<SalviaActionIcon icon={item.icon} />}
         >
           {item.text}
         </Button>
