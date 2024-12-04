@@ -13,7 +13,7 @@
 	"salvia.report.closing-bracket": "). ",
 	"salvia.report.qualweb": "Ohjelmisto perustuu avoimen lähdekoodin QualWeb core -testausohjelmistoon ",
 	"salvia.report.act-rules": "Tarkastuksessa testattiin sivuston saavutettavuutta käyttäen WCAG 2.1:n A- ja AA-tason kriteereihin liitettyjä automaattisia ACT-testaussääntöjä ",
-	"salvia.qualweb.url": "https://github.com/qualweb/core",
+	"salvia.qualweb.url": "https://github.com/qualweb/qualweb",
 	"salvia.act-rules.url": "https://github.com/qualweb/act-rules",
 	"salvia.github.url": "https://github.com/accessibility-fi/salvia",
 	"salvia.report.tested-pages.summary": "Testitulosten yhteenveto ",
