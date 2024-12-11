@@ -18,7 +18,7 @@ var builder = Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilde
 
 builder.ConfigureServices((ctx, services) => {
 
-	var dbConnectionString = ctx.Configuration.GetSection("ConnectionStrings:AzureConnectionStringOriginal");
+	var dbConnectionString = ctx.Configuration.GetSection("ConnectionStrings:AzureConnectionString");
 
 	services.AddDbContext<SalviaDbContext>(opt => opt.UseSqlServer(dbConnectionString.Value));
 	services.AddControllers();
