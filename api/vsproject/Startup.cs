@@ -20,11 +20,11 @@ namespace SalviaServiceAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SalviaDbContext>(opt => 
-            opt.UseSqlServer(Configuration.GetConnectionString("AzureConnectionString")));
+			services.AddDbContextFactory<SalviaDbContext>(
+			    options => SqlServerDbContextOptionsExtensions.UseSqlServer(options, Configuration.GetConnectionString("AzureConnectionString"))
+		    );
 
-
-            services.AddControllers();
+			services.AddControllers();
             services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
