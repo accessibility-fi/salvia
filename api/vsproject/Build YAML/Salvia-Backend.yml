@@ -46,7 +46,7 @@ jobs:
     displayName: Build solution
     inputs:
       solution: $(BuildParameters.solution)
-      vsVersion: "16.0"
+      vsVersion: "17.0"
       msbuildArgs: /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactstagingdirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"
       platform: $(BuildPlatform)
       configuration: $(BuildConfiguration)
