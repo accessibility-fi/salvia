@@ -126,6 +126,8 @@ function createPDF(res, jsonReport, lang) {
       tagged: true,
       displayTitle: true,
       bufferPages: true,
+      size: 'A4'
+
     })
     res.setHeader('Content-type', 'application/pdf')
 
@@ -213,7 +215,7 @@ function createPDF(res, jsonReport, lang) {
 
 function createReportHeader(doc /*, jsonReport*/) {
   const header = doc.struct('Sect', [
-    doc.struct('Figure', { alt: 'logo ' }, () => {
+    doc.struct('Artifact', { type: 'Layout' }, () => {
       doc.image('images/salvia_logo.png', 70, 40, { width: 100 }).moveDown(3)
     }),
 
