@@ -34,7 +34,7 @@
     "url-join": "^4.0.1"
   },
  "engines": {
-    "node": "~18.x.x"
+    "node": "~20.x.x"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
