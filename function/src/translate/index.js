@@ -1,4 +1,4 @@
-var { translateReport } = require('@qualweb/locale');
+var { ReportTranslator } = require('@qualweb/locale');
 
 module.exports = function (context, req) {
 
@@ -17,7 +17,7 @@ module.exports = function (context, req) {
         if (locale !== "en") {
             //iterate through all urls
             Object.keys(reports).map(url => {
-                const translated = translateReport(reports[url], locale);
+                const translated = new ReportTranslator(locale).translate(reports[url]);
                 //remove unnecessary dom element
                 translated.system.page.dom = {};
                 translatedReport[url] = translated;

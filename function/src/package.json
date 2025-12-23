@@ -7,9 +7,12 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@qualweb/core": "^0.7.80",
-    "@qualweb/crawler": "^0.3.20",
-    "@qualweb/locale": "^0.1.19"
+
+    "@qualweb/core": "^0.8.4",
+    "@qualweb/act-rules": "^0.7.5",
+    "@qualweb/crawler": "^0.4.2",
+    "@qualweb/locale": "0.2.2"
+
   },
   "devDependencies": {}
 }
