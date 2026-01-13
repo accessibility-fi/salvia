@@ -1,7 +1,7 @@
 # https://hub.docker.com/_/microsoft-azure-functions-node
 FROM mcr.microsoft.com/azure-functions/node:4-node20-core-tools
 
-RUN apt update && \
+RUN apt update --fix-missing && \
 apt install -y libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev libasound2
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
